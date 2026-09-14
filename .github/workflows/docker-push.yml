@@ -2,11 +2,9 @@ name: Docker Push
 
 on:
   workflow_dispatch:
-  push:
-    branches: ["main", "master"]
-    paths:
-      - "backend/**"
-      - ".github/workflows/docker-push.yml"
+  workflow_run:
+    workflows: ["Terraform Apply"]
+    types: [completed]
 
 permissions:
   contents: read
@@ -19,6 +17,7 @@ env:
 jobs:
   push:
     name: Build and push backend image
+    if: ${{ github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success' }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -32,6 +31,8 @@ jobs:
       - name: Log in to Amazon ECR
         id: login-ecr
         uses: aws-actions/amazon-ecr-login@v2
+      - name: Verify ECR repository exists
+        run: aws ecr describe-repositories --repository-names "$ECR_REPOSITORY"
       - name: Build and push image
         env:
           ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
