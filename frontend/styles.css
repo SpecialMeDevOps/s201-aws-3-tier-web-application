@@ -1,0 +1,14 @@
+:root { font-family: system-ui, sans-serif; color: #172033; background: #f4f7fb; }
+body { margin: 0; }
+.container { max-width: 850px; margin: 4rem auto; padding: 0 1.25rem; }
+.muted, small { color: #667085; }
+form, section { background: white; border-radius: 12px; padding: 1.25rem; margin-top: 1.5rem; box-shadow: 0 2px 12px #17203312; }
+label { display: block; font-weight: 600; margin-bottom: .5rem; }
+.row { display: flex; gap: .75rem; }
+input { flex: 1; border: 1px solid #ccd3df; border-radius: 6px; padding: .7rem; font-size: 1rem; }
+button { border: 0; border-radius: 6px; padding: .7rem 1rem; color: white; background: #2563eb; cursor: pointer; }
+button.secondary { background: #475467; }
+.section-header { display: flex; justify-content: space-between; align-items: center; }
+.job { border-top: 1px solid #eaecf0; padding: .9rem 0; }
+.job span { background: #e0edff; color: #175cd3; border-radius: 999px; padding: .15rem .5rem; font-size: .8rem; }
+@media (max-width: 600px) { .row { flex-direction: column; } }

@@ -1,0 +1,8 @@
+.env
+.env.*
+!.env.example
+tfplan
+*.tfplan
+__pycache__/
+*.py[cod]
+.terraform/

@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>S201 Jobs</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="container">
+      <h1>S201 Job Monitor</h1>
+      <p class="muted">Submit a URL to the backend and view queued jobs.</p>
+
+      <form id="job-form">
+        <label for="target-url">Target URL</label>
+        <div class="row">
+          <input id="target-url" type="url" placeholder="https://example.com" required />
+          <button type="submit">Create job</button>
+        </div>
+        <p id="message" role="status"></p>
+      </form>
+
+      <section>
+        <div class="section-header">
+          <h2>Recent jobs</h2>
+          <button id="refresh" class="secondary" type="button">Refresh</button>
+        </div>
+        <div id="jobs" class="jobs">Loading...</div>
+      </section>
+    </main>
+    <script src="./app.js"></script>
+  </body>
+</html>
